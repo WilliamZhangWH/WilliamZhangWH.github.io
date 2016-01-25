@@ -60,7 +60,7 @@
 <meta name="description" content="有完美主义的强迫症患者。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="William的个人博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/hexo/index.html">
 <meta property="og:site_name" content="William的个人博客">
 <meta property="og:description" content="有完美主义的强迫症患者。">
 <meta name="twitter:card" content="summary">
@@ -83,7 +83,7 @@
   };
 </script>
 
-  <title> William的个人博客 </title>
+  <title> 标签: hexo | William的个人博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -112,9 +112,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -230,141 +228,45 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
 
-    
-
-    
-    
-      
-      
-        
-        
-        
-      
-
-      
-    
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/23/用hexo搭建个人博客时遇到的坑/" itemprop="url">
-                  用hexo搭建个人博客时遇到的坑
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-23T15:52:07+08:00" content="2016-01-23">
-              2016-01-23
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/23/用hexo搭建个人博客时遇到的坑/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/23/用hexo搭建个人博客时遇到的坑/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-			
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="u9996_u5148_uFF0C_u6211_u60F3_u8BF4_u7248_u672C_u5F88_u91CD_u8981_uFF0C_u4E0B_u9762_u6211_u8BF4_u4E00_u4E0B_u6211_u5B89_u88C5_u7684_u7248_u672C_u4FE1_u606F_uFF1A"><a href="#u9996_u5148_uFF0C_u6211_u60F3_u8BF4_u7248_u672C_u5F88_u91CD_u8981_uFF0C_u4E0B_u9762_u6211_u8BF4_u4E00_u4E0B_u6211_u5B89_u88C5_u7684_u7248_u672C_u4FE1_u606F_uFF1A" class="headerlink" title="首先，我想说版本很重要，下面我说一下我安装的版本信息："></a>首先，我想说版本很重要，下面我说一下我安装的版本信息：</h5><ul>
-<li>Homebrew 0.9.5 </li>
-<li>node.js v5.5.0</li>
-<li>npm 3.5.3</li>
-<li>hexo 3.1.1</li>
-</ul>
-<h5 id="u4F7F_u7528Homebrew_u6765_u5B89_u88C5node-js_u6211_u4E2A_u4EBA_u89C9_u5F97_u5E94_u8BE5_u662F_u6700_u65B9_u4FBF_u7684_u65B9_u6CD5"><a href="#u4F7F_u7528Homebrew_u6765_u5B89_u88C5node-js_u6211_u4E2A_u4EBA_u89C9_u5F97_u5E94_u8BE5_u662F_u6700_u65B9_u4FBF_u7684_u65B9_u6CD5" class="headerlink" title="使用Homebrew来安装node.js我个人觉得应该是最方便的方法"></a>使用<a href="http://brew.sh/index_zh-cn.html" title="Homebrew" target="_blank" rel="external">Homebrew</a>来安装node.js我个人觉得应该是最方便的方法</h5><blockquote>
-<p>Homebrew安装方法(打开终端窗口, 粘贴一下脚本)</p>
-</blockquote>
-<pre><code>$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
-</code></pre><h5 id="u7136_u540E_u901A_u8FC7Homebrew_u5B89_u88C5node-js"><a href="#u7136_u540E_u901A_u8FC7Homebrew_u5B89_u88C5node-js" class="headerlink" title="然后通过Homebrew安装node.js"></a>然后通过Homebrew安装node.js</h5><pre><code>$ brew install node
-</code></pre><p><strong>通过Homebrew安装的node.js是最新的版本，我尝试过从<a href="https://nodejs.org/en/" target="_blank" rel="external">node.js官网</a>上安装了老的版本，结果之后发生了很多问题，如果你也安装了之前的版本，可以通过下面的命令删除</strong></p>
-<pre><code>sudo rm -rf /usr/local/{bin/{node,npm},lib/node_modules/npm,lib/node,share/man/*/node.*}
-</code></pre><h5 id="u201CNPM_3ACOMMAND_NOT_FOUND_u201D__u95EE_u9898_u89E3_u51B3_u65B9_u6CD5"><a href="#u201CNPM_3ACOMMAND_NOT_FOUND_u201D__u95EE_u9898_u89E3_u51B3_u65B9_u6CD5" class="headerlink" title="“NPM:COMMAND NOT FOUND” 问题解决方法"></a>“NPM:COMMAND NOT FOUND” 问题解决方法</h5><p><strong>安装node.js的时候会顺带安装npm，需要将根目录下名为.npm的隐藏文件删除，再用brew重新安装以下即可</strong></p>
-<blockquote>
-<p>打开终端，输入以下命令</p>
-</blockquote>
-<pre><code>cd ~
-sudo rm -rf .npm
-brew update
-brew uninstall npm
-brew install npm
-</code></pre><h5 id="u90E8_u7F72_u4EE3_u7801_hexo_deploy__u65E0_u6548_uFF0C__u53EF_u4EE5_u901A_u8FC7_u4EE5_u4E0B_u547D_u4EE4_u89E3_u51B3"><a href="#u90E8_u7F72_u4EE3_u7801_hexo_deploy__u65E0_u6548_uFF0C__u53EF_u4EE5_u901A_u8FC7_u4EE5_u4E0B_u547D_u4EE4_u89E3_u51B3" class="headerlink" title="部署代码 hexo deploy 无效， 可以通过以下命令解决"></a>部署代码 hexo deploy 无效， 可以通过以下命令解决</h5><pre><code>npm install hexo-deployer-git --save
-</code></pre><p><strong>执行完之后重新执行hexo deploy本地文件就会部署到远程仓库里面</strong></p>
-
-          
-        
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        hexo
+        <small>标签</small>
+      </h2>
     </div>
 
-    <footer class="post-footer">
+    
       
 
-      
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/01/23/用hexo搭建个人博客时遇到的坑/" itemprop="url">
+              
+                <span itemprop="name">用hexo搭建个人博客时遇到的坑</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-01-23T15:52:07+08:00"
+              content="2016-01-23" >
+          01-23
+        </time>
+      </div>
+
+    </header>
   </article>
 
 
     
-
-  </section>
+  </div>
 
   
 
