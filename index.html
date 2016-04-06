@@ -270,6 +270,208 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/06/GET与POST请求之区别/" itemprop="url">
+                  GET与POST请求之区别
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-06T14:18:04+08:00" content="2016-04-06">
+              2016-04-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术总结/" itemprop="url" rel="index">
+                    <span itemprop="name">技术总结</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/06/GET与POST请求之区别/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/06/GET与POST请求之区别/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+			
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://www.nowamagic.net/librarys/veda/detail/1919" target="_blank" rel="external">不再以讹传讹，GET和POST的真正区别</a></p>
+<p><a href="http://www.cnblogs.com/hyddd/archive/2009/03/31/1426026.html" target="_blank" rel="external">浅谈HTTP中Get与Post的区别</a></p>
+<p><strong>上面的两个参考文档是同行朋友在问完我GET与POST区别之后发给我的，看完之后一头雾水，原本以为很简单的问题，一下子有点丈二和尚摸不着头脑了。于是乎我就开始查找资料，发现了一个很好的国外网站，专门做对比，名叫 <a href="http://www.diffen.com/" target="_blank" rel="external">Diffen</a>。<br>再输入GET和POST之后，答案就出来了，下面我就简单翻译一下。</strong></p>
+<p><img src="http://7xqgda.com1.z0.glb.clouddn.com/postImage2.png" alt="img"></p>
+<blockquote>
+<p>HTTP <strong>POST</strong>请求在从客户端发送到服务端时需要在消息体中提供额外的数据。相反的是，<strong>GET</strong>请求的所有需要的数据都在URL中。HTML表单可以在&lt;form&gt;元素中指定使用<strong>POST</strong>方法还是<strong>GET</strong>方法。指定的方法明确了表单数据是如何被提交到服务器的。如果是<strong>GET</strong>请求，所有表单数据会被编码进URL，作为查询字符参数拼接。通过<strong>POST</strong>请求，表单数据将出现在HTTP请求的消息体中。</p>
+</blockquote>
+<p><strong>对比表如下</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>GET (HTTP)</strong></th>
+<th><strong>POST (HTTP)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>历史记录</strong></td>
+<td>参数被保存在浏览器的历史记录里面，以为这是URL的一部分</td>
+<td>参数不会被保存在浏览器的历史记录中</td>
+</tr>
+<tr>
+<td><strong>收藏</strong></td>
+<td>可以被收藏</td>
+<td>不可被收藏</td>
+</tr>
+<tr>
+<td><strong>返回/重复提交</strong></td>
+<td>GET请求可以被重复执行，但是如果该HTML已经存在在浏览器的缓存中将不会被重复提交</td>
+<td>浏览器通常会提示用户数据需要被重新提交</td>
+</tr>
+<tr>
+<td><strong>编码类型(ENCTYPE属性)</strong></td>
+<td>application/x-www-form-urlencoded</td>
+<td>multipart/form-data 或者 application/x-www-form-urlencoded 给二进制数据使用多样编码方式</td>
+</tr>
+<tr>
+<td><strong>参数</strong></td>
+<td>可以发送，但是放进请求行的参数数据大小将要被限制。最安全的大小是小于2K，某些服务器可以处理到64K</td>
+<td>可以发送参数，包括上传至服务器的文件</td>
+</tr>
+<tr>
+<td><strong>攻击</strong></td>
+<td>容易被脚本程序攻击</td>
+<td>比较难以攻击</td>
+</tr>
+<tr>
+<td><strong>表单数据类型限制</strong></td>
+<td>只允许ASCII字符</td>
+<td>没有限制，二进制数据也可以</td>
+</tr>
+<tr>
+<td><strong>安全性</strong></td>
+<td>安全性低于POST，因为URL中包含了发送的数据，所以会被以明文的形式保存在浏览器的记录和服务器的日志中</td>
+<td>比GET安全一些，因为不会被存储</td>
+</tr>
+<tr>
+<td><strong>表单数据长度限制</strong></td>
+<td>一个安全的URL长度通常限制在2048个字符，但是也视不同浏览器和服务器而不同</td>
+<td>没有限制</td>
+</tr>
+<tr>
+<td><strong>可用性</strong></td>
+<td>GET请求不该被用在发送密码和其他一些敏感信息的时候</td>
+<td>POST请求通常用在发送密码和一些敏感信息的时候</td>
+</tr>
+<tr>
+<td><strong>可见性</strong></td>
+<td>对任何人可见(会被展示在浏览器的地址栏)还有对发送的信息量有一点限制</td>
+<td>POST请求在URL中不可见</td>
+</tr>
+<tr>
+<td><strong>缓存</strong></td>
+<td>可以被缓存</td>
+<td>不做缓存</td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://7xqgda.com1.z0.glb.clouddn.com/postImage3.png" alt="img"></p>
+<h3 id="u5728_u670D_u52A1_u7AEF_u5904_u7406_u7684_u5DEE_u5F02"><a href="#u5728_u670D_u52A1_u7AEF_u5904_u7406_u7684_u5DEE_u5F02" class="headerlink" title="在服务端处理的差异"></a>在服务端处理的差异</h3><blockquote>
+<p>原则上，对一个提交的表单数据处理需要依赖发送的方式，是<strong>GET</strong>还是<strong>POST</strong>。由于数据以不同方式进行编码，所以就需要不同的解码机制。因此，一般而言，处理提交时，改变发送方式也需要对脚本做必要的改变。比如，在使用CGI接口时，如果使用GET请求，脚本就会以环境变量(QUERYSTRING)接受数据。但是如果使用POST请求，表单数据就会通过标准输入流(stdin)传递，并且可读字节数将以Content-length头给出。</p>
+</blockquote>
+<h3 id="u63A8_u8350_u7528_u6CD5"><a href="#u63A8_u8350_u7528_u6CD5" class="headerlink" title="推荐用法"></a>推荐用法</h3><blockquote>
+<p>提交“幂等”表单(那些不“显著改变世界状态”的)时，建议使用GET。换句话说，只涉及查询数据库的表单。另一个观点是，几个幂查询将具有作为一个单一的查询相同的效果。如果数据库更新或其他操作，如触发邮件都参与其中，建议POST的用法。</p>
+</blockquote>
+<p><strong>来自Dropbox开发者博客中的一段话</strong></p>
+<blockquote>
+<p>浏览器并不知道一个特定的HTML表单是做什么的，但是如果是通过HTTP GET方式提交的，浏览器就会在发生网络错误的时候知道自动重复提交时安全的。如果是通过HTTP POST提交的表单，重复提交可能是不安全的，所以浏览器需要先询问用户。</p>
+</blockquote>
+<p>如果转载请标明出处，谢谢！</p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/29/扩展UIAlertView时otherButtonTitles传参问题解决/" itemprop="url">
                   扩展UIAlertView时otherButtonTitles传参问题解决
                 </a>
@@ -924,7 +1126,7 @@ brew install npm
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -938,7 +1140,7 @@ brew install npm
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
