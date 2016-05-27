@@ -59,17 +59,17 @@
 
 
 
-<meta name="description" content="实现原理函数解释C语言标准库中头文件stdarg.h索引的接口包含了一组能够遍历变长参数列表的宏。主要包含下面几个：1、va_list 用来声明一个表示参数表中各个参数的变量。2、va_start 初始化一个指针来指向变长参数列表的头一个变量（注意，…只能出现在参数表的最后）3、va_arg每次调用时都会返回当前指针指向的变量，并将指针挪至下一个位置，参数的类型需要在这个调用的第二个参数来指定，v">
+<meta name="description" content="实现原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="扩展UIAlertView时otherButtonTitles传参问题解决">
 <meta property="og:url" content="http://WilliamZhangWH.github.io/2016/03/29/扩展UIAlertView时otherButtonTitles传参问题解决/index.html">
 <meta property="og:site_name" content="William的个人博客">
-<meta property="og:description" content="实现原理函数解释C语言标准库中头文件stdarg.h索引的接口包含了一组能够遍历变长参数列表的宏。主要包含下面几个：1、va_list 用来声明一个表示参数表中各个参数的变量。2、va_start 初始化一个指针来指向变长参数列表的头一个变量（注意，…只能出现在参数表的最后）3、va_arg每次调用时都会返回当前指针指向的变量，并将指针挪至下一个位置，参数的类型需要在这个调用的第二个参数来指定，v">
+<meta property="og:description" content="实现原理">
 <meta property="og:image" content="http://7xqgda.com1.z0.glb.clouddn.com/postImage1.jpg">
-<meta property="og:updated_time" content="2016-04-05T02:09:24.000Z">
+<meta property="og:updated_time" content="2016-05-27T05:25:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="扩展UIAlertView时otherButtonTitles传参问题解决">
-<meta name="twitter:description" content="实现原理函数解释C语言标准库中头文件stdarg.h索引的接口包含了一组能够遍历变长参数列表的宏。主要包含下面几个：1、va_list 用来声明一个表示参数表中各个参数的变量。2、va_start 初始化一个指针来指向变长参数列表的头一个变量（注意，…只能出现在参数表的最后）3、va_arg每次调用时都会返回当前指针指向的变量，并将指针挪至下一个位置，参数的类型需要在这个调用的第二个参数来指定，v">
+<meta name="twitter:description" content="实现原理">
 
 
 
@@ -325,7 +325,8 @@
 
       
         <p><img src="http://7xqgda.com1.z0.glb.clouddn.com/postImage1.jpg" alt="img"></p>
-<h3 id="u5B9E_u73B0_u539F_u7406"><a href="#u5B9E_u73B0_u539F_u7406" class="headerlink" title="实现原理"></a>实现原理</h3><h4 id="u51FD_u6570_u89E3_u91CA"><a href="#u51FD_u6570_u89E3_u91CA" class="headerlink" title="函数解释"></a>函数解释</h4><p>C语言标准库中头文件stdarg.h索引的接口包含了一组能够遍历变长参数列表的宏。主要包含下面几个：<br>1、va_list 用来声明一个表示参数表中各个参数的变量。<br>2、va_start 初始化一个指针来指向变长参数列表的头一个变量（注意，…只能出现在参数表的最后）<br>3、va_arg每次调用时都会返回当前指针指向的变量，并将指针挪至下一个位置，参数的类型需要在这个调用的第二个参数来指定，va_arg也是根据这个参数来判断偏移的距离。<br>4、va_end需要在函数最后调用，来进行一些清理工作。</p>
+<h3 id="u5B9E_u73B0_u539F_u7406"><a href="#u5B9E_u73B0_u539F_u7406" class="headerlink" title="实现原理"></a>实现原理</h3><a id="more"></a>
+<h4 id="u51FD_u6570_u89E3_u91CA"><a href="#u51FD_u6570_u89E3_u91CA" class="headerlink" title="函数解释"></a>函数解释</h4><p>C语言标准库中头文件stdarg.h索引的接口包含了一组能够遍历变长参数列表的宏。主要包含下面几个：<br>1、va_list 用来声明一个表示参数表中各个参数的变量。<br>2、va_start 初始化一个指针来指向变长参数列表的头一个变量（注意，…只能出现在参数表的最后）<br>3、va_arg每次调用时都会返回当前指针指向的变量，并将指针挪至下一个位置，参数的类型需要在这个调用的第二个参数来指定，va_arg也是根据这个参数来判断偏移的距离。<br>4、va_end需要在函数最后调用，来进行一些清理工作。</p>
 <h4 id="u51FD_u6570_u53C2_u6570_u4F20_u9012_u539F_u7406"><a href="#u51FD_u6570_u53C2_u6570_u4F20_u9012_u539F_u7406" class="headerlink" title="函数参数传递原理"></a>函数参数传递原理</h4><p>函数参数是以数据结构:栈的形式存取,从右至左入栈。</p>
 <p>　　首先是参数的内存存放格式：参数存放在内存的堆栈段中，在执行函数的时候，从最后一个开始入栈。因此栈底高地址，栈顶低地址，举个例子如下：<br>void func(int x, float y, char z);<br>　　那么，调用函数的时候，实参 char z 先进栈，然后是 float y，最后是 int x，因此在内存中变量的存放次序是 x-&gt;y-&gt;z，因此，从理论上说，我们只要探测到任意一个变量的地址，并且知道其他变量的类型，通过指针移位运算，则总可以顺藤摸瓜找到其他的输入变量。<br>　　下面是 <stdarg.h> 里面重要的几个宏定义如下：<br>typedef char<em> va_list;<br>void va_start ( va_list ap, prev_param ); /</em> ANSI version */<br>type va_arg ( va_list ap, type );<br>void va_end ( va_list ap );<br>va_list 是一个字符指针，可以理解为指向当前参数的一个指针，取参必须通过这个指针进行。</stdarg.h></p>
 <p><step 1=""> 在调用参数表之前，定义一个 va_list 类型的变量，(假设va_list 类型变量被定义为ap)；</step></p>

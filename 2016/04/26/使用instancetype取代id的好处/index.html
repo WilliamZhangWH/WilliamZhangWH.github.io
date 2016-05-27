@@ -65,7 +65,7 @@
 <meta property="og:url" content="http://WilliamZhangWH.github.io/2016/04/26/使用instancetype取代id的好处/index.html">
 <meta property="og:site_name" content="William的个人博客">
 <meta property="og:description" content="Would it be beneficial to begin using instancetype instead of id?There definitely is a benefit. When you use ‘id’, you get essentially no type checking at all. With instancetype, the compiler and IDE">
-<meta property="og:updated_time" content="2016-04-26T06:12:37.000Z">
+<meta property="og:updated_time" content="2016-05-27T05:23:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用instancetype取代id的好处">
 <meta name="twitter:description" content="Would it be beneficial to begin using instancetype instead of id?There definitely is a benefit. When you use ‘id’, you get essentially no type checking at all. With instancetype, the compiler and IDE">
@@ -330,6 +330,7 @@
 </blockquote>
 <p><strong>Emphasis mine.  Source: <a href="https://developer.apple.com/library/ios/releasenotes/ObjectiveC/ModernizationObjC/AdoptingModernObjective-C/AdoptingModernObjective-C.html#//apple_ref/doc/uid/TP40014150-CH1-SW11" target="_blank" rel="external">Adopting Modern Objective-C</a></strong></p>
 <p><strong>With that out of the way, let’s move on and explain why it’s a good idea.</strong></p>
+<a id="more"></a>
 <h5 id="First_2C_some_definitions_3A"><a href="#First_2C_some_definitions_3A" class="headerlink" title="First, some definitions:"></a>First, some definitions:</h5><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Foo</span>:<span class="title">NSObject</span></span></span><br><span class="line">- (<span class="keyword">id</span>)initWithBar:(<span class="built_in">NSInteger</span>)bar; <span class="comment">// initializer</span></span><br><span class="line">+ (<span class="keyword">id</span>)fooWithBar:(<span class="built_in">NSInteger</span>)bar;  <span class="comment">// class factory</span></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <p>For a class factory, you should always use instancetype. The compiler does not automatically convert id to instancetype. That id is a generic object. But if you make it an instancetype the compiler knows what type of object the method returns.</p>
 <p>This is not an academic problem. For instance, [[NSFileHandle fileHandleWithStandardOutput] writeData:formattedData] will generate an error on Mac OS X (only) Multiple methods named ‘writeData:’ found with mismatched result, parameter type or attributes. The reason is that both NSFileHandle and NSURLHandle provide a writeData:. Since [NSFileHandle fileHandleWithStandardOutput] returns an id, the compiler is not certain what class writeData: is being called on.</p>

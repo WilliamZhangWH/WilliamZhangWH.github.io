@@ -59,23 +59,17 @@
 
 
 
-<meta name="description" content="项目名称：WWRemoveAnimation项目地址：https://github.com/WilliamZhangWH/WWRemoveAnimation效果展示
-实现原理在cell上添加一个作为白色背景的view，再在view上添加一个滑动手势
-12345678- (void)awakeFromNib &amp;#123;    UIPanGestureRecognizer *pan = [[UIPa">
+<meta name="description" content="项目名称：WWRemoveAnimation项目地址：https://github.com/WilliamZhangWH/WWRemoveAnimation效果展示">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度模仿谷歌翻译滑动删除动画效果">
 <meta property="og:url" content="http://WilliamZhangWH.github.io/2016/01/27/深度模仿谷歌翻译滑动删除动画效果/index.html">
 <meta property="og:site_name" content="William的个人博客">
-<meta property="og:description" content="项目名称：WWRemoveAnimation项目地址：https://github.com/WilliamZhangWH/WWRemoveAnimation效果展示
-实现原理在cell上添加一个作为白色背景的view，再在view上添加一个滑动手势
-12345678- (void)awakeFromNib &amp;#123;    UIPanGestureRecognizer *pan = [[UIPa">
+<meta property="og:description" content="项目名称：WWRemoveAnimation项目地址：https://github.com/WilliamZhangWH/WWRemoveAnimation效果展示">
 <meta property="og:image" content="https://raw.githubusercontent.com/WilliamZhangWH/WWRemoveAnimation/master/screenshot/WWRemoveAnimation.gif">
-<meta property="og:updated_time" content="2016-02-02T08:37:49.000Z">
+<meta property="og:updated_time" content="2016-05-27T05:25:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度模仿谷歌翻译滑动删除动画效果">
-<meta name="twitter:description" content="项目名称：WWRemoveAnimation项目地址：https://github.com/WilliamZhangWH/WWRemoveAnimation效果展示
-实现原理在cell上添加一个作为白色背景的view，再在view上添加一个滑动手势
-12345678- (void)awakeFromNib &amp;#123;    UIPanGestureRecognizer *pan = [[UIPa">
+<meta name="twitter:description" content="项目名称：WWRemoveAnimation项目地址：https://github.com/WilliamZhangWH/WWRemoveAnimation效果展示">
 
 
 
@@ -331,6 +325,7 @@
 
       
         <h1 id="u9879_u76EE_u540D_u79F0_uFF1AWWRemoveAnimation"><a href="#u9879_u76EE_u540D_u79F0_uFF1AWWRemoveAnimation" class="headerlink" title="项目名称：WWRemoveAnimation"></a>项目名称：WWRemoveAnimation</h1><h3 id="u9879_u76EE_u5730_u5740_uFF1Ahttps_3A//github-com/WilliamZhangWH/WWRemoveAnimation"><a href="#u9879_u76EE_u5730_u5740_uFF1Ahttps_3A//github-com/WilliamZhangWH/WWRemoveAnimation" class="headerlink" title="项目地址：https://github.com/WilliamZhangWH/WWRemoveAnimation"></a>项目地址：<a href="https://github.com/WilliamZhangWH/WWRemoveAnimation" target="_blank" rel="external">https://github.com/WilliamZhangWH/WWRemoveAnimation</a></h3><h4 id="u6548_u679C_u5C55_u793A"><a href="#u6548_u679C_u5C55_u793A" class="headerlink" title="效果展示"></a>效果展示</h4><p><img src="https://raw.githubusercontent.com/WilliamZhangWH/WWRemoveAnimation/master/screenshot/WWRemoveAnimation.gif" alt="image"></p>
+<a id="more"></a>
 <h4 id="u5B9E_u73B0_u539F_u7406"><a href="#u5B9E_u73B0_u539F_u7406" class="headerlink" title="实现原理"></a>实现原理</h4><p><strong>在cell上添加一个作为白色背景的view，再在view上添加一个滑动手势</strong></p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)awakeFromNib &#123;</span><br><span class="line">    <span class="built_in">UIPanGestureRecognizer</span> *pan = [[<span class="built_in">UIPanGestureRecognizer</span> alloc]initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(panToRemove:)];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.panGesture</span> = pan;</span><br><span class="line">    pan<span class="variable">.maximumNumberOfTouches</span> = <span class="number">1</span>;</span><br><span class="line">    pan<span class="variable">.minimumNumberOfTouches</span> = <span class="number">1</span>;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.resultBackgroundView</span> addGestureRecognizer:pan];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>下面代码是对滑动手势的事件处理</strong></p>
